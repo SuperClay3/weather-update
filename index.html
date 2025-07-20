@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Globe App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+</head>
+<body>
+  <div id="preloader">
+    <div class="loader"></div>
+    <p>Loading Weather App...</p>
+  </div>
+
+  <div id="globe-background">
+    <div class="container">
+      <h1>🌍 CURRENT WEATHER UPDATE</h1>
+      <input type="text" id="cityInput" placeholder="Enter city name..." />
+      <button onclick="getWeather()">Get Weather</button>
+
+      <!-- Temperature Unit Toggle -->
+      <div class="toggle-units">
+        <label class="switch">
+          <input type="checkbox" id="unitToggle" onchange="toggleUnits()">
+          <span class="slider round"></span>
+        </label>
+        <span class="unit-label">Show in °F</span>
+      </div>
+
+      <!-- Dark Mode Toggle -->
+      <div class="toggle-theme">
+        <label class="switch">
+          <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+          <span class="slider round"></span>
+        </label>
+        <span class="unit-label">Dark Mode</span>
+      </div>
+
+      <p id="localDateTime" class="datetime"></p>
+      <div id="loader" class="loader hidden"></div>
+
+      <!-- Weather and Forecast side by side -->
+      <div class="weather-forecast-container">
+        <div id="weatherResult" class="result-box"></div>
+        <div id="forecastResult" class="forecast-box"></div>
+      </div>
+
+      <!-- Quote below both sides -->
+      <div id="quoteBox" class="quote-box"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
